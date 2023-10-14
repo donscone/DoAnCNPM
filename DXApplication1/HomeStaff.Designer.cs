@@ -188,7 +188,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(438, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 40);
+            this.label1.Size = new System.Drawing.Size(224, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "GYM TITAN";
             // 
@@ -228,6 +228,7 @@
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("HomeStaff.IconOptions.SvgImage")));
             this.Name = "HomeStaff";
             this.Text = "Bảng Điều Khiển";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeStaff_FormClosing);
             this.fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager2)).EndInit();

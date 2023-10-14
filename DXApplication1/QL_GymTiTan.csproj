@@ -45,8 +45,15 @@
     <Reference Include="DevExpress.XtraEditors.v23.1" />
     <Reference Include="DevExpress.Drawing.v23.1" />
     <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FC_UI">
+      <HintPath>..\..\..\..\..\Downloads\Compressed\FC_UI\FC_UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroSet UI">
+      <HintPath>..\..\..\..\..\Downloads\Compressed\MetroSetUI 2.0 Dlls\net45\MetroSet UI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -76,6 +83,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemUpdate.Designer.cs">
+      <DependentUpon>MemUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HomeAdmin.resx">
@@ -86,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemUpdate.resx">
+      <DependentUpon>MemUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

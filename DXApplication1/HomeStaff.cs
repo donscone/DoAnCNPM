@@ -16,5 +16,15 @@ namespace DXApplication1
         {
             InitializeComponent();
         }
+
+        private void HomeStaff_FormClosing(object sender, FormClosingEventArgs e) //Luôn hiển thị hộp thoại xác nhận khi đóng form
+        {
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận thoát", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.No)
+            {
+                // Hủy việc đóng Form
+                e.Cancel = true;
+            }
+        }
     }
 }
