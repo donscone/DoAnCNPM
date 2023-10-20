@@ -19,6 +19,10 @@ namespace DXApplication1
         {
             InitializeComponent();
             this.MaximizeBox = false; //Tắt chức năng phóng to form
+            
+            // accordionControlElement9.Visible = false;
+            // accordionControlElement10.Visible = false;  //Dùng cho nhân viên
+            // accordionControlElement7.Visible = false;
         }
 
         private void HomeAdmin_FormClosing(object sender, FormClosingEventArgs e) //Luôn hiển thị hộp thoại xác nhận khi đóng form
@@ -36,7 +40,7 @@ namespace DXApplication1
             MemUpdate.ShowDialog();        
         }
 
-        private void accordionControlElement2_Click(object sender, EventArgs e) //Mở form M"emView"
+        private void accordionControlElement2_Click(object sender, EventArgs e) //Mở form "MemView"
         {
             MemView MemView = new MemView();
             MemView.ShowDialog();
@@ -48,29 +52,28 @@ namespace DXApplication1
             txtCurrentTime.Text = currentTime.ToString("dd/MM/yyyy"); //Gán thông tin thời gian hiện tại vào TextBox
         }
 
-        private void accordionControlElement4_Click(object sender, EventArgs e)
+        private void accordionControlElement4_Click(object sender, EventArgs e) //Mở form "ToolUpdate"
         {
             ToolUpdate ToolUpdate = new ToolUpdate();
             ToolUpdate.ShowDialog();
         }
 
-        private void accordionControlElement8_Click(object sender, EventArgs e)
+        private void accordionControlElement8_Click(object sender, EventArgs e) //Mở form "ToolView"
         {
             ToolView ToolView = new ToolView();
             ToolView.ShowDialog();
         }
 
-        private void accordionControlElement9_Click(object sender, EventArgs e)
+        private void accordionControlElement9_Click(object sender, EventArgs e) //Mở form "StaffUpdate"
         {
-            StaffUpdate StaffAssign = new StaffUpdate();
-            StaffAssign.ShowDialog();
+            StaffUpdate StaffUpdate = new StaffUpdate();
+            StaffUpdate.ShowDialog();
         }
 
-        private void accordionControlElement10_Click(object sender, EventArgs e)
+        private void accordionControlElement10_Click(object sender, EventArgs e) //Mở form "StafView"
         {
             StaffView StaffView = new StaffView();
-            StaffView.ShowDialog();
-            
-        }
+            StaffView.ShowDialog();        
+        }     
     }
 }
