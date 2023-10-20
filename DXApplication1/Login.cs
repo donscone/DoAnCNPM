@@ -43,5 +43,7 @@ namespace DXApplication1
         {
             Close();
         }
+
+       
     }
 }

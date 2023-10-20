@@ -31,7 +31,28 @@ namespace DXApplication1
         private void accordionControlElement3_Click(object sender, EventArgs e) //Mở form "MemUpdate" khi click 
         {
             MemUpdate MemUpdate = new MemUpdate();
-            MemUpdate.Show();
+            MemUpdate.ShowDialog();
+            
+        }
+
+        private void accordionControlElement6_Click(object sender, EventArgs e)
+        {
+            MemPay MemPay = new MemPay();
+            MemPay.ShowDialog();
+        }
+
+        private void accordionControlElement2_Click(object sender, EventArgs e)
+        {
+            MemView MemView = new MemView();
+            MemView.ShowDialog();
+        }
+
+        private void HomeAdmin_Load(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+
+            // Gán thông tin thời gian hiện tại vào TextBox
+            txtCurrentTime.Text = currentTime.ToString("dd/MM/yyyy");
         }
     }
 }
