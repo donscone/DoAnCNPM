@@ -69,6 +69,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForm\StaffUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\StaffUpdate.Designer.cs">
+      <DependentUpon>StaffUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\StaffView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\StaffView.Designer.cs">
+      <DependentUpon>StaffView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\ToolUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\ToolUpdate.Designer.cs">
+      <DependentUpon>ToolUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildForm\ToolView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\ToolView.Designer.cs">
+      <DependentUpon>ToolView.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,26 +111,32 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemPay.cs">
+    <Compile Include="ChildForm\MemUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemPay.Designer.cs">
-      <DependentUpon>MemPay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MemUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MemUpdate.Designer.cs">
+    <Compile Include="ChildForm\MemUpdate.Designer.cs">
       <DependentUpon>MemUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemView.cs">
+    <Compile Include="ChildForm\MemView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemView.Designer.cs">
+    <Compile Include="ChildForm\MemView.Designer.cs">
       <DependentUpon>MemView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChildForm\StaffUpdate.resx">
+      <DependentUpon>StaffUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\StaffView.resx">
+      <DependentUpon>StaffView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\ToolUpdate.resx">
+      <DependentUpon>ToolUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForm\ToolView.resx">
+      <DependentUpon>ToolView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeAdmin.resx">
       <DependentUpon>HomeAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,13 +146,10 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemPay.resx">
-      <DependentUpon>MemPay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MemUpdate.resx">
+    <EmbeddedResource Include="ChildForm\MemUpdate.resx">
       <DependentUpon>MemUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemView.resx">
+    <EmbeddedResource Include="ChildForm\MemView.resx">
       <DependentUpon>MemView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

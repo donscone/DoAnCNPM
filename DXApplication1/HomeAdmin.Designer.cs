@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeAdmin));
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.txtCurrentTime = new Guna.UI.WinForms.GunaLineTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -50,7 +50,6 @@
             this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
-            this.txtCurrentTime = new Guna.UI.WinForms.GunaLineTextBox();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -68,6 +67,22 @@
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
             this.fluentDesignFormContainer1.Size = new System.Drawing.Size(602, 552);
             this.fluentDesignFormContainer1.TabIndex = 0;
+            // 
+            // txtCurrentTime
+            // 
+            this.txtCurrentTime.BackColor = System.Drawing.Color.DarkGray;
+            this.txtCurrentTime.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCurrentTime.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtCurrentTime.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCurrentTime.LineColor = System.Drawing.Color.DimGray;
+            this.txtCurrentTime.Location = new System.Drawing.Point(0, 18);
+            this.txtCurrentTime.Name = "txtCurrentTime";
+            this.txtCurrentTime.PasswordChar = '\0';
+            this.txtCurrentTime.ReadOnly = true;
+            this.txtCurrentTime.SelectedText = "";
+            this.txtCurrentTime.Size = new System.Drawing.Size(134, 35);
+            this.txtCurrentTime.TabIndex = 2;
+            this.txtCurrentTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -109,8 +124,7 @@
             // 
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement3,
-            this.accordionControlElement2,
-            this.accordionControlElement6});
+            this.accordionControlElement2});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Quản Lý Thành Viên";
@@ -134,13 +148,6 @@
             this.accordionControlElement2.Text = "Xem Thông Tin Thành Viên";
             this.accordionControlElement2.Click += new System.EventHandler(this.accordionControlElement2_Click);
             // 
-            // accordionControlElement6
-            // 
-            this.accordionControlElement6.Name = "accordionControlElement6";
-            this.accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement6.Text = "Quản Lý Thanh Toán";
-            this.accordionControlElement6.Click += new System.EventHandler(this.accordionControlElement6_Click);
-            // 
             // accordionControlElement5
             // 
             this.accordionControlElement5.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -155,6 +162,7 @@
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement4.Text = "Cập Nhật Thiết Bị";
+            this.accordionControlElement4.Click += new System.EventHandler(this.accordionControlElement4_Click);
             // 
             // accordionControlElement8
             // 
@@ -163,6 +171,7 @@
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement8.Text = "Xem Thông Tin Thiết Bị";
+            this.accordionControlElement8.Click += new System.EventHandler(this.accordionControlElement8_Click);
             // 
             // accordionControlSeparator3
             // 
@@ -188,6 +197,7 @@
             this.accordionControlElement9.Name = "accordionControlElement9";
             this.accordionControlElement9.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement9.Text = "Thông Tin Nhân Viên";
+            this.accordionControlElement9.Click += new System.EventHandler(this.accordionControlElement9_Click);
             // 
             // accordionControlElement10
             // 
@@ -198,7 +208,8 @@
             new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
             this.accordionControlElement10.Name = "accordionControlElement10";
             this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement10.Text = "Phân Công";
+            this.accordionControlElement10.Text = "Cập Nhật Nhân Viên";
+            this.accordionControlElement10.Click += new System.EventHandler(this.accordionControlElement10_Click);
             // 
             // accordionControlSeparator1
             // 
@@ -232,22 +243,6 @@
             // accordionControlSeparator2
             // 
             this.accordionControlSeparator2.Name = "accordionControlSeparator2";
-            // 
-            // txtCurrentTime
-            // 
-            this.txtCurrentTime.BackColor = System.Drawing.Color.DarkGray;
-            this.txtCurrentTime.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCurrentTime.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtCurrentTime.Font = new System.Drawing.Font("Century Schoolbook", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCurrentTime.LineColor = System.Drawing.Color.DimGray;
-            this.txtCurrentTime.Location = new System.Drawing.Point(463, 517);
-            this.txtCurrentTime.Name = "txtCurrentTime";
-            this.txtCurrentTime.PasswordChar = '\0';
-            this.txtCurrentTime.ReadOnly = true;
-            this.txtCurrentTime.SelectedText = "";
-            this.txtCurrentTime.Size = new System.Drawing.Size(134, 35);
-            this.txtCurrentTime.TabIndex = 2;
-            this.txtCurrentTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // HomeAdmin
             // 
@@ -288,7 +283,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
         private System.Windows.Forms.PictureBox pictureBox1;

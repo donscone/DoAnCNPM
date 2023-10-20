@@ -1,5 +1,7 @@
 ﻿using DevExpress.Utils.CommonDialogs.Internal;
 using DevExpress.XtraBars;
+using DevExpress.XtraToolbox;
+using DXApplication1.ChildForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +18,7 @@ namespace DXApplication1
         public HomeAdmin()
         {
             InitializeComponent();
-            this.MaximizeBox = false;
+            this.MaximizeBox = false; //Tắt chức năng phóng to form
         }
 
         private void HomeAdmin_FormClosing(object sender, FormClosingEventArgs e) //Luôn hiển thị hộp thoại xác nhận khi đóng form
@@ -28,20 +30,13 @@ namespace DXApplication1
             }
         }
 
-        private void accordionControlElement3_Click(object sender, EventArgs e) //Mở form "MemUpdate" khi click 
+        private void accordionControlElement3_Click(object sender, EventArgs e) //Mở form "MemUpdate" 
         {
             MemUpdate MemUpdate = new MemUpdate();
-            MemUpdate.ShowDialog();
-            
+            MemUpdate.ShowDialog();        
         }
 
-        private void accordionControlElement6_Click(object sender, EventArgs e)
-        {
-            MemPay MemPay = new MemPay();
-            MemPay.ShowDialog();
-        }
-
-        private void accordionControlElement2_Click(object sender, EventArgs e)
+        private void accordionControlElement2_Click(object sender, EventArgs e) //Mở form M"emView"
         {
             MemView MemView = new MemView();
             MemView.ShowDialog();
@@ -49,10 +44,33 @@ namespace DXApplication1
 
         private void HomeAdmin_Load(object sender, EventArgs e)
         {
-            DateTime currentTime = DateTime.Now;
+            DateTime currentTime = DateTime.Now; //Lấy thông tin thời gian hiện tại
+            txtCurrentTime.Text = currentTime.ToString("dd/MM/yyyy"); //Gán thông tin thời gian hiện tại vào TextBox
+        }
 
-            // Gán thông tin thời gian hiện tại vào TextBox
-            txtCurrentTime.Text = currentTime.ToString("dd/MM/yyyy");
+        private void accordionControlElement4_Click(object sender, EventArgs e)
+        {
+            ToolUpdate ToolUpdate = new ToolUpdate();
+            ToolUpdate.ShowDialog();
+        }
+
+        private void accordionControlElement8_Click(object sender, EventArgs e)
+        {
+            ToolView ToolView = new ToolView();
+            ToolView.ShowDialog();
+        }
+
+        private void accordionControlElement9_Click(object sender, EventArgs e)
+        {
+            StaffUpdate StaffAssign = new StaffUpdate();
+            StaffAssign.ShowDialog();
+        }
+
+        private void accordionControlElement10_Click(object sender, EventArgs e)
+        {
+            StaffView StaffView = new StaffView();
+            StaffView.ShowDialog();
+            
         }
     }
 }

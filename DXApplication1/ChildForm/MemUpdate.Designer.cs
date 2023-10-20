@@ -96,7 +96,6 @@
             this.comboBox1.Items.AddRange(new object[] {
             "1 Tháng",
             "2 Tháng",
-            "4 Tháng",
             "6 Tháng",
             "1 Năm"});
             this.comboBox1.Location = new System.Drawing.Point(492, 176);
