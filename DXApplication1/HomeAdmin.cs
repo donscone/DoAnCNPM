@@ -20,10 +20,12 @@ namespace DXApplication1
             InitializeComponent();
             this.MaximizeBox = false; //Tắt chức năng phóng to form
             
-            // accordionControlElement9.Visible = false;
-            // accordionControlElement10.Visible = false;  //Dùng cho nhân viên
-            // accordionControlElement7.Visible = false;
+            accordionControlElement9.Visible = false;
+            accordionControlElement10.Visible = false;
+            accordionControlElement7.Visible = false;
         }
+
+
 
         private void HomeAdmin_FormClosing(object sender, FormClosingEventArgs e) //Luôn hiển thị hộp thoại xác nhận khi đóng form
         {
@@ -74,6 +76,24 @@ namespace DXApplication1
         {
             StaffView StaffView = new StaffView();
             StaffView.ShowDialog();        
-        }     
+        }
+
+
+        int clickCount = 0;
+        private void labAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            clickCount++;
+            if (clickCount == 7)
+            {
+                System.Windows.Forms.DialogResult result = MessageBox.Show("Bạn có phải là chủ phòng không - Hãy cẩn thận công việc của bạn", "Xác nhận", MessageBoxButtons.YesNo);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    accordionControlElement9.Visible = true;
+                    accordionControlElement10.Visible = true;
+                    accordionControlElement7.Visible = true;
+                }               
+            }
+        }
     }
 }

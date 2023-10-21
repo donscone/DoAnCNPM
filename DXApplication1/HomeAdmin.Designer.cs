@@ -50,6 +50,7 @@
             this.barDockingMenuItem1 = new DevExpress.XtraBars.BarDockingMenuItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.labAdmin = new Guna.UI.WinForms.GunaLinkLabel();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -59,13 +60,14 @@
             // 
             // fluentDesignFormContainer1
             // 
+            this.fluentDesignFormContainer1.Controls.Add(this.labAdmin);
             this.fluentDesignFormContainer1.Controls.Add(this.txtCurrentTime);
             this.fluentDesignFormContainer1.Controls.Add(this.label1);
             this.fluentDesignFormContainer1.Controls.Add(this.pictureBox1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fluentDesignFormContainer1.Location = new System.Drawing.Point(275, 39);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(602, 552);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(627, 562);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // txtCurrentTime
@@ -116,7 +118,7 @@
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(275, 552);
+            this.accordionControl1.Size = new System.Drawing.Size(275, 562);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -223,7 +225,7 @@
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(877, 39);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(902, 39);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -244,11 +246,23 @@
             // 
             this.accordionControlSeparator2.Name = "accordionControlSeparator2";
             // 
+            // labAdmin
+            // 
+            this.labAdmin.AutoSize = true;
+            this.labAdmin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.labAdmin.Location = new System.Drawing.Point(539, 33);
+            this.labAdmin.Name = "labAdmin";
+            this.labAdmin.Size = new System.Drawing.Size(58, 20);
+            this.labAdmin.TabIndex = 3;
+            this.labAdmin.TabStop = true;
+            this.labAdmin.Text = "ADMIN";
+            this.labAdmin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labAdmin_LinkClicked);
+            // 
             // HomeAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 591);
+            this.ClientSize = new System.Drawing.Size(902, 601);
             this.ControlContainer = this.fluentDesignFormContainer1;
             this.Controls.Add(this.fluentDesignFormContainer1);
             this.Controls.Add(this.accordionControl1);
@@ -291,6 +305,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator3;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
         private Guna.UI.WinForms.GunaLineTextBox txtCurrentTime;
+        private Guna.UI.WinForms.GunaLinkLabel labAdmin;
     }
 }
 

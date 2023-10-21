@@ -33,13 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemUpdate));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMaThanhVien = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbGioiTinh = new System.Windows.Forms.ComboBox();
+            this.cmbGoiTap = new System.Windows.Forms.ComboBox();
+            this.dateSinh = new DevExpress.XtraEditors.DateEdit();
+            this.dateThamGia = new DevExpress.XtraEditors.DateEdit();
+            this.txtSDTThanhVien = new System.Windows.Forms.TextBox();
+            this.txtTenThanhVien = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,36 +49,32 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvUpdate = new Guna.UI.WinForms.GunaDataGridView();
-            this.clmTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmGioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNgayThamGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmGoiTap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton4 = new Guna.UI.WinForms.GunaButton();
+            this.btnAdd = new Guna.UI.WinForms.GunaButton();
+            this.btnDelete = new Guna.UI.WinForms.GunaButton();
+            this.btnUpdate = new Guna.UI.WinForms.GunaButton();
+            this.btnClose = new Guna.UI.WinForms.GunaButton();
+            this.btnReset = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateSinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateSinh.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateThamGia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateThamGia.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.comboBox1);
-            this.groupControl1.Controls.Add(this.dateEdit2);
-            this.groupControl1.Controls.Add(this.dateEdit1);
-            this.groupControl1.Controls.Add(this.radioButton2);
-            this.groupControl1.Controls.Add(this.radioButton1);
-            this.groupControl1.Controls.Add(this.textBox2);
-            this.groupControl1.Controls.Add(this.textBox1);
+            this.groupControl1.Controls.Add(this.txtMaThanhVien);
+            this.groupControl1.Controls.Add(this.label8);
+            this.groupControl1.Controls.Add(this.cmbGioiTinh);
+            this.groupControl1.Controls.Add(this.cmbGoiTap);
+            this.groupControl1.Controls.Add(this.dateSinh);
+            this.groupControl1.Controls.Add(this.dateThamGia);
+            this.groupControl1.Controls.Add(this.txtSDTThanhVien);
+            this.groupControl1.Controls.Add(this.txtTenThanhVien);
             this.groupControl1.Controls.Add(this.label7);
             this.groupControl1.Controls.Add(this.label6);
             this.groupControl1.Controls.Add(this.label5);
@@ -90,80 +87,85 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông Tin Thành Viên";
             // 
-            // comboBox1
+            // txtMaThanhVien
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.txtMaThanhVien.Location = new System.Drawing.Point(288, 177);
+            this.txtMaThanhVien.Name = "txtMaThanhVien";
+            this.txtMaThanhVien.ReadOnly = true;
+            this.txtMaThanhVien.Size = new System.Drawing.Size(48, 23);
+            this.txtMaThanhVien.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(257, 177);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 18);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Mã:";
+            // 
+            // cmbGioiTinh
+            // 
+            this.cmbGioiTinh.FormattingEnabled = true;
+            this.cmbGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cmbGioiTinh.Location = new System.Drawing.Point(121, 176);
+            this.cmbGioiTinh.Name = "cmbGioiTinh";
+            this.cmbGioiTinh.Size = new System.Drawing.Size(104, 24);
+            this.cmbGioiTinh.TabIndex = 5;
+            // 
+            // cmbGoiTap
+            // 
+            this.cmbGoiTap.FormattingEnabled = true;
+            this.cmbGoiTap.Items.AddRange(new object[] {
             "1 Tháng",
             "2 Tháng",
             "6 Tháng",
             "1 Năm"});
-            this.comboBox1.Location = new System.Drawing.Point(492, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 24);
-            this.comboBox1.TabIndex = 4;
+            this.cmbGoiTap.Location = new System.Drawing.Point(492, 176);
+            this.cmbGoiTap.Name = "cmbGoiTap";
+            this.cmbGoiTap.Size = new System.Drawing.Size(137, 24);
+            this.cmbGoiTap.TabIndex = 4;
             // 
-            // dateEdit2
+            // dateSinh
             // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(492, 35);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateSinh.EditValue = null;
+            this.dateSinh.Location = new System.Drawing.Point(492, 35);
+            this.dateSinh.Name = "dateSinh";
+            this.dateSinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateSinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(137, 22);
-            this.dateEdit2.TabIndex = 3;
+            this.dateSinh.Size = new System.Drawing.Size(137, 22);
+            this.dateSinh.TabIndex = 3;
             // 
-            // dateEdit1
+            // dateThamGia
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(492, 102);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateThamGia.EditValue = null;
+            this.dateThamGia.Location = new System.Drawing.Point(492, 102);
+            this.dateThamGia.Name = "dateThamGia";
+            this.dateThamGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateThamGia.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(137, 22);
-            this.dateEdit1.TabIndex = 3;
+            this.dateThamGia.Size = new System.Drawing.Size(137, 22);
+            this.dateThamGia.TabIndex = 3;
             // 
-            // radioButton2
+            // txtSDTThanhVien
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(225, 175);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(48, 22);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nữ";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.txtSDTThanhVien.Location = new System.Drawing.Point(121, 102);
+            this.txtSDTThanhVien.Name = "txtSDTThanhVien";
+            this.txtSDTThanhVien.Size = new System.Drawing.Size(215, 23);
+            this.txtSDTThanhVien.TabIndex = 1;
             // 
-            // radioButton1
+            // txtTenThanhVien
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(147, 175);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 22);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nam";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(121, 102);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(215, 23);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(121, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtTenThanhVien.Location = new System.Drawing.Point(121, 35);
+            this.txtTenThanhVien.Name = "txtTenThanhVien";
+            this.txtTenThanhVien.Size = new System.Drawing.Size(215, 23);
+            this.txtTenThanhVien.TabIndex = 1;
             // 
             // label7
             // 
@@ -252,13 +254,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUpdate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUpdate.ColumnHeadersHeight = 30;
-            this.dgvUpdate.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmTen,
-            this.clmSDT,
-            this.clmGioiTinh,
-            this.clmNgaySinh,
-            this.clmNgayThamGia,
-            this.clmGoiTap});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F);
@@ -268,7 +263,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUpdate.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUpdate.EnableHeadersVisualStyles = false;
-            this.dgvUpdate.GridColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgvUpdate.GridColor = System.Drawing.Color.PaleTurquoise;
             this.dgvUpdate.Location = new System.Drawing.Point(6, 22);
             this.dgvUpdate.Name = "dgvUpdate";
             this.dgvUpdate.RowHeadersVisible = false;
@@ -284,7 +279,7 @@
             this.dgvUpdate.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvUpdate.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgvUpdate.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvUpdate.ThemeStyle.GridColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgvUpdate.ThemeStyle.GridColor = System.Drawing.Color.PaleTurquoise;
             this.dgvUpdate.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
             this.dgvUpdate.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
             this.dgvUpdate.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Tahoma", 7.8F);
@@ -299,42 +294,7 @@
             this.dgvUpdate.ThemeStyle.RowsStyle.Height = 24;
             this.dgvUpdate.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.dgvUpdate.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // clmTen
-            // 
-            this.clmTen.HeaderText = "Tên Thành Viên";
-            this.clmTen.MinimumWidth = 6;
-            this.clmTen.Name = "clmTen";
-            // 
-            // clmSDT
-            // 
-            this.clmSDT.HeaderText = "Số Điện Thoại";
-            this.clmSDT.MinimumWidth = 6;
-            this.clmSDT.Name = "clmSDT";
-            // 
-            // clmGioiTinh
-            // 
-            this.clmGioiTinh.HeaderText = "Giới Tính";
-            this.clmGioiTinh.MinimumWidth = 6;
-            this.clmGioiTinh.Name = "clmGioiTinh";
-            // 
-            // clmNgaySinh
-            // 
-            this.clmNgaySinh.HeaderText = "Ngày Sinh";
-            this.clmNgaySinh.MinimumWidth = 6;
-            this.clmNgaySinh.Name = "clmNgaySinh";
-            // 
-            // clmNgayThamGia
-            // 
-            this.clmNgayThamGia.HeaderText = "Ngày Tham Gia";
-            this.clmNgayThamGia.MinimumWidth = 6;
-            this.clmNgayThamGia.Name = "clmNgayThamGia";
-            // 
-            // clmGoiTap
-            // 
-            this.clmGoiTap.HeaderText = "Gói Tập";
-            this.clmGoiTap.MinimumWidth = 6;
-            this.clmGoiTap.Name = "clmGoiTap";
+            this.dgvUpdate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_CellContentClick);
             // 
             // groupBox1
             // 
@@ -346,111 +306,141 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Chung";
             // 
-            // gunaButton1
+            // btnAdd
             // 
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = null;
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(423, 294);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverImage = null;
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Size = new System.Drawing.Size(87, 36);
-            this.gunaButton1.TabIndex = 4;
-            this.gunaButton1.Text = "Thêm";
-            this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAdd.AnimationHoverSpeed = 0.07F;
+            this.btnAdd.AnimationSpeed = 0.03F;
+            this.btnAdd.BaseColor = System.Drawing.Color.DimGray;
+            this.btnAdd.BorderColor = System.Drawing.Color.Black;
+            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAdd.FocusedColor = System.Drawing.Color.Empty;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = null;
+            this.btnAdd.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnAdd.Location = new System.Drawing.Point(423, 294);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAdd.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnAdd.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnAdd.OnHoverImage = null;
+            this.btnAdd.OnPressedColor = System.Drawing.Color.Black;
+            this.btnAdd.Size = new System.Drawing.Size(87, 36);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // gunaButton2
+            // btnDelete
             // 
-            this.gunaButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaButton2.AnimationSpeed = 0.03F;
-            this.gunaButton2.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaButton2.Image = null;
-            this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton2.Location = new System.Drawing.Point(527, 294);
-            this.gunaButton2.Name = "gunaButton2";
-            this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
-            this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton2.OnHoverImage = null;
-            this.gunaButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton2.Size = new System.Drawing.Size(87, 36);
-            this.gunaButton2.TabIndex = 4;
-            this.gunaButton2.Text = "Xoá";
-            this.gunaButton2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnDelete.AnimationHoverSpeed = 0.07F;
+            this.btnDelete.AnimationSpeed = 0.03F;
+            this.btnDelete.BaseColor = System.Drawing.Color.DimGray;
+            this.btnDelete.BorderColor = System.Drawing.Color.Black;
+            this.btnDelete.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDelete.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = null;
+            this.btnDelete.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDelete.Location = new System.Drawing.Point(527, 294);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnDelete.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDelete.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDelete.OnHoverImage = null;
+            this.btnDelete.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDelete.Size = new System.Drawing.Size(87, 36);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Xoá";
+            this.btnDelete.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // gunaButton3
+            // btnUpdate
             // 
-            this.gunaButton3.AnimationHoverSpeed = 0.07F;
-            this.gunaButton3.AnimationSpeed = 0.03F;
-            this.gunaButton3.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaButton3.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton3.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton3.ForeColor = System.Drawing.Color.White;
-            this.gunaButton3.Image = null;
-            this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton3.Location = new System.Drawing.Point(633, 294);
-            this.gunaButton3.Name = "gunaButton3";
-            this.gunaButton3.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
-            this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton3.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton3.OnHoverImage = null;
-            this.gunaButton3.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton3.Size = new System.Drawing.Size(87, 36);
-            this.gunaButton3.TabIndex = 4;
-            this.gunaButton3.Text = "Sửa";
-            this.gunaButton3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUpdate.AnimationHoverSpeed = 0.07F;
+            this.btnUpdate.AnimationSpeed = 0.03F;
+            this.btnUpdate.BaseColor = System.Drawing.Color.DimGray;
+            this.btnUpdate.BorderColor = System.Drawing.Color.Black;
+            this.btnUpdate.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnUpdate.FocusedColor = System.Drawing.Color.Empty;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = null;
+            this.btnUpdate.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnUpdate.Location = new System.Drawing.Point(633, 294);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnUpdate.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnUpdate.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnUpdate.OnHoverImage = null;
+            this.btnUpdate.OnPressedColor = System.Drawing.Color.Black;
+            this.btnUpdate.Size = new System.Drawing.Size(87, 36);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // gunaButton4
+            // btnClose
             // 
-            this.gunaButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaButton4.AnimationSpeed = 0.03F;
-            this.gunaButton4.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton4.ForeColor = System.Drawing.Color.White;
-            this.gunaButton4.Image = null;
-            this.gunaButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton4.Location = new System.Drawing.Point(737, 294);
-            this.gunaButton4.Name = "gunaButton4";
-            this.gunaButton4.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
-            this.gunaButton4.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton4.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton4.OnHoverImage = null;
-            this.gunaButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton4.Size = new System.Drawing.Size(87, 36);
-            this.gunaButton4.TabIndex = 4;
-            this.gunaButton4.Text = "Thoát";
-            this.gunaButton4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnClose.AnimationHoverSpeed = 0.07F;
+            this.btnClose.AnimationSpeed = 0.03F;
+            this.btnClose.BaseColor = System.Drawing.Color.DimGray;
+            this.btnClose.BorderColor = System.Drawing.Color.Black;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnClose.FocusedColor = System.Drawing.Color.Empty;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = null;
+            this.btnClose.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnClose.Location = new System.Drawing.Point(737, 294);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnClose.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnClose.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnClose.OnHoverImage = null;
+            this.btnClose.OnPressedColor = System.Drawing.Color.Black;
+            this.btnClose.Size = new System.Drawing.Size(87, 36);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Text = "Thoát";
+            this.btnClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.AnimationHoverSpeed = 0.07F;
+            this.btnReset.AnimationSpeed = 0.03F;
+            this.btnReset.BaseColor = System.Drawing.Color.DimGray;
+            this.btnReset.BorderColor = System.Drawing.Color.Black;
+            this.btnReset.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnReset.FocusedColor = System.Drawing.Color.Empty;
+            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Image = null;
+            this.btnReset.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnReset.Location = new System.Drawing.Point(284, 294);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnReset.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnReset.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnReset.OnHoverImage = null;
+            this.btnReset.OnPressedColor = System.Drawing.Color.Black;
+            this.btnReset.Size = new System.Drawing.Size(124, 36);
+            this.btnReset.TabIndex = 5;
+            this.btnReset.Text = "Khởi Tạo Lại";
+            this.btnReset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // MemUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 627);
-            this.Controls.Add(this.gunaButton4);
-            this.Controls.Add(this.gunaButton3);
-            this.Controls.Add(this.gunaButton2);
-            this.Controls.Add(this.gunaButton1);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupControl1);
@@ -462,10 +452,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateSinh.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateSinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateThamGia.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateThamGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdate)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -479,28 +469,24 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private DevExpress.XtraEditors.DateEdit dateThamGia;
+        private System.Windows.Forms.TextBox txtSDTThanhVien;
+        private System.Windows.Forms.TextBox txtTenThanhVien;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private DevExpress.XtraEditors.DateEdit dateSinh;
+        private System.Windows.Forms.ComboBox cmbGoiTap;
         private Guna.UI.WinForms.GunaDataGridView dgvUpdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmGioiTinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNgaySinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNgayThamGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmGoiTap;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Guna.UI.WinForms.GunaButton gunaButton1;
-        private Guna.UI.WinForms.GunaButton gunaButton2;
-        private Guna.UI.WinForms.GunaButton gunaButton3;
-        private Guna.UI.WinForms.GunaButton gunaButton4;
+        private Guna.UI.WinForms.GunaButton btnAdd;
+        private Guna.UI.WinForms.GunaButton btnDelete;
+        private Guna.UI.WinForms.GunaButton btnUpdate;
+        private Guna.UI.WinForms.GunaButton btnClose;
+        private System.Windows.Forms.ComboBox cmbGioiTinh;
+        private System.Windows.Forms.TextBox txtMaThanhVien;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI.WinForms.GunaButton btnReset;
     }
 }
