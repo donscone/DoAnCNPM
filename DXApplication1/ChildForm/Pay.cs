@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Data.Svg;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DXApplication1.ChildForm
 {
@@ -53,6 +55,8 @@ namespace DXApplication1.ChildForm
             connection.Open();
             DataLoad();
             DataLoad2();
+            dateHetHan.ReadOnly = true;
+            cmbGoiTap.Enabled = false;
         }
 
         private void Pay_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,7 +70,7 @@ namespace DXApplication1.ChildForm
 
         private void dgvUpdate_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            cmbTinhTrang.Text = "";
+            txtGiaTien.Text = "";
             dateBatDau.Text = "";
             dateHetHan.Text = "";
            
@@ -77,10 +81,11 @@ namespace DXApplication1.ChildForm
 
         private void dgvPay_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             txtMaThanhVien.Text = dgvPay.SelectedRows[0].Cells[0].Value.ToString();
             txtTenThanhVien.Text = dgvPay.SelectedRows[0].Cells[1].Value.ToString();
             cmbGoiTap.Text = dgvPay.SelectedRows[0].Cells[2].Value.ToString();
-            cmbTinhTrang.Text = dgvPay.SelectedRows[0].Cells[3].Value.ToString();
+            txtGiaTien.Text = dgvPay.SelectedRows[0].Cells[3].Value.ToString();
             dateBatDau.Text = dgvPay.SelectedRows[0].Cells[4].Value.ToString();
             dateHetHan.Text = dgvPay.SelectedRows[0].Cells[5].Value.ToString();
         }
@@ -90,22 +95,33 @@ namespace DXApplication1.ChildForm
             txtMaThanhVien.Text = "";
             txtTenThanhVien.Text = "";
             cmbGoiTap.Text = "";
-            cmbTinhTrang.Text = "";
+            txtGiaTien.Text = "";
             dateBatDau.Text = "";
             dateHetHan.Text = "";
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Thanh Toán ? ", "Xác nhận thanh toán", System.Windows.Forms.MessageBoxButtons.YesNo);
+            DateTime startDate = dateBatDau.DateTime;
+            DateTime endDate = dateHetHan.DateTime;
+            DateTime currentDate = DateTime.Now;
+
+            if (currentDate >= startDate && currentDate <= endDate)
+            {
+                MessageBox.Show("Đã thanh toán tháng này !");
+            }
+            else
+            {
+                System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Thanh Toán ? ", "Xác nhận thanh toán", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 command = connection.CreateCommand();
-                command.CommandText = " Insert into ThanhToan values(N'" + txtMaThanhVien.Text + "' , N'" + txtTenThanhVien.Text + "' , N'" + cmbGoiTap.Text + "' , N'" + cmbTinhTrang.Text + "' , '" + dateBatDau.Text + "' , '" + dateHetHan.Text + "')";
+                command.CommandText = " Insert into ThanhToan values(N'" + txtMaThanhVien.Text + "' , N'" + txtTenThanhVien.Text + "' , N'" + cmbGoiTap.Text + "' , N'" + txtGiaTien.Text + "' , '" + dateBatDau.Text + "' , '" + dateHetHan.Text + "')";
                 command.ExecuteNonQuery();
                 DataLoad2();
                 System.Windows.Forms.MessageBox.Show("Thanh Toán Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
             }
+        }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -132,10 +148,94 @@ namespace DXApplication1.ChildForm
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 command = connection.CreateCommand();
-                command.CommandText = "  Update ThanhToan set TinhTrang = N'" + cmbTinhTrang.Text + "' , NgayBatDauGoi = '" + dateBatDau.Text + "' , NgayHetHan = '" + dateHetHan.Text + "' where MaThanhVien ='" + txtMaThanhVien.Text + "'";
+                command.CommandText = " Update ThanhToan set TinhTrang = NgayBatDauGoi = '" + dateBatDau.Text + "' , NgayHetHan = '" + dateHetHan.Text + "' where MaThanhVien ='" + txtMaThanhVien.Text + "'";
                 command.ExecuteNonQuery();
                 DataLoad2();
                 System.Windows.Forms.MessageBox.Show("Đã Sửa Thông Tin Thanh Toán Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+        }
+
+        private void cmbTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGoiTap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = cmbGoiTap.SelectedItem.ToString().Trim(); 
+            if (selectedValue == "1 Tháng")
+            {
+                txtGiaTien.Text = "200.000 đồng";        
+            }
+            else if (selectedValue == "3 Tháng")
+            {
+                txtGiaTien.Text = "570.000 đồng";
+            }
+            else if (selectedValue == "6 Tháng")
+            {
+                txtGiaTien.Text = "1.080.000 đồng";
+            }
+            else if (selectedValue == "1 Năm")
+            {
+                txtGiaTien.Text = "2.040.000 đồng";
+            }
+            else if (selectedValue == "3 Tháng Premium")
+            {
+                txtGiaTien.Text = "13.470.000 đồng";
+            }
+            else if (selectedValue == "6 Tháng Premium")
+            {
+                txtGiaTien.Text = "24.246.600 đồng";
+            }
+            else if (selectedValue == "1 Năm Premium")
+            {
+                txtGiaTien.Text = "45.798.000 đồng";
+            }
+        }
+
+        private void dateBatDau_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cmbGoiTap.Text == "1 Tháng")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddMonths(1);
+                dateHetHan.DateTime = endDate;
+            }
+            else if (cmbGoiTap.Text == "3 Tháng")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddMonths(3);
+                dateHetHan.DateTime = endDate;
+            }
+            else if (cmbGoiTap.Text == "6 Tháng")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddMonths(6);
+                dateHetHan.DateTime = endDate;
+            }
+            else if (cmbGoiTap.Text == "1 Năm")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddYears(1);
+                dateHetHan.DateTime = endDate;
+            }
+            else if (cmbGoiTap.Text == "3 Tháng Premium")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddMonths(3);
+                dateHetHan.DateTime = endDate;
+            }
+            else if (cmbGoiTap.Text == "6 Tháng Premium")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddMonths(6);
+                dateHetHan.DateTime = endDate;
+            }
+            else if (cmbGoiTap.Text == "1 Năm Premium")
+            {
+                DateTime startDate = dateBatDau.DateTime;
+                DateTime endDate = startDate.AddYears(1);
+                dateHetHan.DateTime = endDate;
             }
         }
     }

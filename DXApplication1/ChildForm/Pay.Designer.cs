@@ -42,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbGoiTap = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbTinhTrang = new System.Windows.Forms.ComboBox();
             this.txtTenThanhVien = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@
             this.dgvPay = new Guna.UI.WinForms.GunaDataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtGiaTien = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateHetHan.Properties)).BeginInit();
@@ -81,13 +81,13 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txtGiaTien);
             this.groupControl1.Controls.Add(this.dateHetHan);
             this.groupControl1.Controls.Add(this.dateBatDau);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.cmbGoiTap);
             this.groupControl1.Controls.Add(this.txtMaThanhVien);
             this.groupControl1.Controls.Add(this.label8);
-            this.groupControl1.Controls.Add(this.cmbTinhTrang);
             this.groupControl1.Controls.Add(this.txtTenThanhVien);
             this.groupControl1.Controls.Add(this.label7);
             this.groupControl1.Controls.Add(this.label5);
@@ -122,6 +122,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateBatDau.Size = new System.Drawing.Size(167, 22);
             this.dateBatDau.TabIndex = 12;
+            this.dateBatDau.EditValueChanged += new System.EventHandler(this.dateBatDau_EditValueChanged);
             // 
             // label1
             // 
@@ -138,7 +139,7 @@
             this.cmbGoiTap.FormattingEnabled = true;
             this.cmbGoiTap.Items.AddRange(new object[] {
             "1 Tháng",
-            "2 Tháng",
+            "3 Tháng",
             "6 Tháng",
             "1 Năm",
             "3 Tháng Premium",
@@ -148,6 +149,7 @@
             this.cmbGoiTap.Name = "cmbGoiTap";
             this.cmbGoiTap.Size = new System.Drawing.Size(182, 24);
             this.cmbGoiTap.TabIndex = 10;
+            this.cmbGoiTap.SelectedIndexChanged += new System.EventHandler(this.cmbGoiTap_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -159,21 +161,11 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Mã Thành Viên:";
             // 
-            // cmbTinhTrang
-            // 
-            this.cmbTinhTrang.FormattingEnabled = true;
-            this.cmbTinhTrang.Items.AddRange(new object[] {
-            "Đã Thanh Toán",
-            "Chưa Thanh Toán"});
-            this.cmbTinhTrang.Location = new System.Drawing.Point(499, 42);
-            this.cmbTinhTrang.Name = "cmbTinhTrang";
-            this.cmbTinhTrang.Size = new System.Drawing.Size(167, 24);
-            this.cmbTinhTrang.TabIndex = 4;
-            // 
             // txtTenThanhVien
             // 
             this.txtTenThanhVien.Location = new System.Drawing.Point(147, 79);
             this.txtTenThanhVien.Name = "txtTenThanhVien";
+            this.txtTenThanhVien.ReadOnly = true;
             this.txtTenThanhVien.Size = new System.Drawing.Size(182, 23);
             this.txtTenThanhVien.TabIndex = 1;
             // 
@@ -181,11 +173,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(408, 42);
+            this.label7.Location = new System.Drawing.Point(427, 43);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 18);
+            this.label7.Size = new System.Drawing.Size(66, 18);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Tình Trạng:";
+            this.label7.Text = "Giá Tiền:";
             // 
             // label5
             // 
@@ -499,6 +491,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông Tin Thanh Toán";
             // 
+            // txtGiaTien
+            // 
+            this.txtGiaTien.Location = new System.Drawing.Point(499, 42);
+            this.txtGiaTien.Name = "txtGiaTien";
+            this.txtGiaTien.ReadOnly = true;
+            this.txtGiaTien.Size = new System.Drawing.Size(167, 23);
+            this.txtGiaTien.TabIndex = 14;
+            // 
             // Pay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -541,7 +541,6 @@
         private System.Windows.Forms.TextBox txtMaThanhVien;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cmbTinhTrang;
         private System.Windows.Forms.TextBox txtTenThanhVien;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -561,5 +560,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.DateEdit dateHetHan;
         private DevExpress.XtraEditors.DateEdit dateBatDau;
+        private System.Windows.Forms.TextBox txtGiaTien;
     }
 }

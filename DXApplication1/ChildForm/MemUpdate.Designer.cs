@@ -121,7 +121,7 @@
             this.cmbGoiTap.FormattingEnabled = true;
             this.cmbGoiTap.Items.AddRange(new object[] {
             "1 Tháng",
-            "2 Tháng",
+            "3 Tháng",
             "6 Tháng",
             "1 Năm",
             "3 Tháng Premium",

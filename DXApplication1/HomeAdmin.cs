@@ -89,19 +89,24 @@ namespace DXApplication1
         private void labAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             clickCount++;
-            if (clickCount == 7)
+            if (clickCount == 1)
             {
-                System.Windows.Forms.DialogResult result = MessageBox.Show("Bạn có phải là chủ phòng không ? - Hãy cẩn thận công việc của bạn !", "Xác nhận", MessageBoxButtons.YesNo);
-
+                System.Windows.Forms.DialogResult result = MessageBox.Show("Chức năng này chỉ dành cho chủ phòng hoặc nhà phát triển !", "Xác nhận", MessageBoxButtons.YesNo);
+            }
+            else if (clickCount == 3)
+            {
+                System.Windows.Forms.DialogResult result = MessageBox.Show("Hãy dừng lại, bạn đang cố gắng can thiệp vào hệ thống !", "Xác nhận", MessageBoxButtons.YesNo);
+            }
+            else if (clickCount == 7)
+            {
+                System.Windows.Forms.DialogResult result = MessageBox.Show("Bạn có phải là chủ phòng không? Hãy cẩn thận công việc của bạn!", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     accordionControlElement9.Visible = true;
                     accordionControlElement10.Visible = true;
                     accordionControlElement7.Visible = true;
-                }               
+                }
             }
         }
-
-        
     }
 }
