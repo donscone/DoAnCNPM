@@ -68,26 +68,46 @@ namespace DXApplication1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Insert into ThanhVien values(N'"+txtTenThanhVien.Text+"' , '"+txtSDTThanhVien.Text+"' , N'"+cmbGioiTinh.Text+"' , '"+dateSinh.Text+"' , '"+dateThamGia.Text+"' , N'"+cmbGoiTap.Text+"')";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Insert into ThanhVien values(N'" + txtTenThanhVien.Text + "' , '" + txtSDTThanhVien.Text + "' , N'" + cmbGioiTinh.Text + "' , '" + dateSinh.Text + "' , '" + dateThamGia.Text + "' , N'" + cmbGoiTap.Text + "')";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Thêm Thành Viên Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }  
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Delete from ThanhVien where MaThanhVien ='" + txtMaThanhVien.Text + "'";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thành Viên ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Delete from ThanhVien where MaThanhVien ='" + txtMaThanhVien.Text + "'";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Đã Xoá Thành Viên!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Update ThanhVien set TenThanhVien =N'"+ txtTenThanhVien.Text +"' , SoDienThoai ='"+ txtSDTThanhVien.Text + "' , GioiTinh =N'"+ cmbGioiTinh.Text + "' , NgaySinh ='"+dateSinh.Text + "' , NgayThamGia ='"+dateThamGia.Text + "' , GoiTap =N'"+cmbGoiTap.Text +"' where MaThanhVien ='"+txtMaThanhVien.Text+"' ";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Thành Viên ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Update ThanhVien set TenThanhVien =N'" + txtTenThanhVien.Text + "' , SoDienThoai ='" + txtSDTThanhVien.Text + "' , GioiTinh =N'" + cmbGioiTinh.Text + "' , NgaySinh ='" + dateSinh.Text + "' , NgayThamGia ='" + dateThamGia.Text + "' , GoiTap =N'" + cmbGoiTap.Text + "' where MaThanhVien ='" + txtMaThanhVien.Text + "' ";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Đã Sửa Thông Tin Thành Viên Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -95,15 +115,10 @@ namespace DXApplication1
             txtMaThanhVien.Text = "";
             txtTenThanhVien.Text = "";
             txtSDTThanhVien.Text = "";
-            cmbGioiTinh. Text = "";
+            cmbGioiTinh.Text = "";
+            cmbGoiTap.Text = "";
             dateSinh.Text = "";
             dateThamGia.Text = "";
-            cmbGoiTap.Text = "";
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

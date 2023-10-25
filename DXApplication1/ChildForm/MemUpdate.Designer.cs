@@ -123,7 +123,10 @@
             "1 Tháng",
             "2 Tháng",
             "6 Tháng",
-            "1 Năm"});
+            "1 Năm",
+            "3 Tháng Premium",
+            "6 Tháng Premium",
+            "1 Năm Premium"});
             this.cmbGoiTap.Location = new System.Drawing.Point(492, 176);
             this.cmbGoiTap.Name = "cmbGoiTap";
             this.cmbGoiTap.Size = new System.Drawing.Size(137, 24);

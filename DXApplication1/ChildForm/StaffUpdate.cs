@@ -64,26 +64,41 @@ namespace DXApplication1.ChildForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Insert into NhanVien values(N'" + txtTenNhanVien.Text + "' , '" + txtSDTNhanVien.Text + "' , N'" + cmbChucVu.Text + "' , '" + dateThamGia.Text + "')";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Insert into NhanVien values(N'" + txtTenNhanVien.Text + "' , '" + txtSDTNhanVien.Text + "' , N'" + cmbChucVu.Text + "' , '" + dateThamGia.Text + "')";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Thêm Nhân Viên Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Delete from NhanVien where MaNhanVien ='" + txtMaNhanVien.Text + "'";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thông Tin Nhân Viên ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Delete from NhanVien where MaNhanVien ='" + txtMaNhanVien.Text + "'";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Đã Xoá Thông Tin Nhân Viên!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Update NhanVien set TenNhanVien =N'" + txtTenNhanVien.Text + "' , SoDienThoai ='" + txtSDTNhanVien.Text + "' , ChucVu =N'" + cmbChucVu.Text + "' ,  NgayThamGia ='" + dateThamGia.Text + "'  where MaNhanVien ='" + txtMaNhanVien.Text + "' ";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Nhân Viên ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Update NhanVien set TenNhanVien =N'" + txtTenNhanVien.Text + "' , SoDienThoai ='" + txtSDTNhanVien.Text + "' , ChucVu =N'" + cmbChucVu.Text + "' ,  NgayThamGia ='" + dateThamGia.Text + "'  where MaNhanVien ='" + txtMaNhanVien.Text + "' ";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Đã Sửa Thông Tin Nhân Viên Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

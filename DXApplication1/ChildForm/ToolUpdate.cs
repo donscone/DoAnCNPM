@@ -64,26 +64,41 @@ namespace DXApplication1.ChildForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Insert into ThietBi values(N'" + txtTenThietBi.Text + "' , '" + txtSoLuong.Text + "' , N'" + cmbTinhTrang.Text + "' , '" + dateBaoTri.Text + "')";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin Thiết Bị ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Insert into ThietBi values(N'" + txtTenThietBi.Text + "' , '" + txtSoLuong.Text + "' , N'" + cmbTinhTrang.Text + "' , '" + dateBaoTri.Text + "')";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Thêm Thiết Bị Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Delete from ThietBi where MaThietBi ='" + txtMaThietBi.Text + "'";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thông Tin Thiết Bị ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Delete from ThietBi where MaThietBi ='" + txtMaThietBi.Text + "'";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Đã Xoá Thông Tin Thiết Bị!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            command = connection.CreateCommand();
-            command.CommandText = " Update ThietBi set TenThietBi =N'" + txtTenThietBi.Text + "' , SoLuong ='" + txtSoLuong.Text + "' , TinhTrang =N'" + cmbTinhTrang.Text + "' ,  NgayBaoTri ='" + dateBaoTri.Text + "'  where MaThietBi ='" + txtMaThietBi.Text + "' ";
-            command.ExecuteNonQuery();
-            DataLoad();
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Thiết Bị ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                command = connection.CreateCommand();
+                command.CommandText = " Update ThietBi set TenThietBi =N'" + txtTenThietBi.Text + "' , SoLuong ='" + txtSoLuong.Text + "' , TinhTrang =N'" + cmbTinhTrang.Text + "' ,  NgayBaoTri ='" + dateBaoTri.Text + "'  where MaThietBi ='" + txtMaThietBi.Text + "' ";
+                command.ExecuteNonQuery();
+                DataLoad();
+                System.Windows.Forms.MessageBox.Show("Đã Sửa Thông Tin Thiết Bị Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

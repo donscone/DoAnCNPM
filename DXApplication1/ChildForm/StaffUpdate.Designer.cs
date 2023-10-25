@@ -242,7 +242,8 @@
             this.cmbChucVu.Items.AddRange(new object[] {
             "Dọn Dẹp",
             "Bảo Vệ",
-            "Tiếp Tân"});
+            "Tiếp Tân",
+            "Huấn Luyện Viên - PT"});
             this.cmbChucVu.Location = new System.Drawing.Point(492, 36);
             this.cmbChucVu.Name = "cmbChucVu";
             this.cmbChucVu.Size = new System.Drawing.Size(137, 24);

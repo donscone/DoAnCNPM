@@ -79,5 +79,10 @@ namespace DXApplication1
         {
             Close();
         }
+
+        private void dgvUpdate_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -60,6 +60,12 @@ namespace DXApplication1
             ToolUpdate.ShowDialog();
         }
 
+        private void accordionControlElement6_Click(object sender, EventArgs e) //Mở form "Pay"
+        {
+            Pay pay = new Pay();
+            pay.ShowDialog();
+        }
+
         private void accordionControlElement8_Click(object sender, EventArgs e) //Mở form "ToolView"
         {
             ToolView ToolView = new ToolView();
@@ -85,7 +91,7 @@ namespace DXApplication1
             clickCount++;
             if (clickCount == 7)
             {
-                System.Windows.Forms.DialogResult result = MessageBox.Show("Bạn có phải là chủ phòng không - Hãy cẩn thận công việc của bạn", "Xác nhận", MessageBoxButtons.YesNo);
+                System.Windows.Forms.DialogResult result = MessageBox.Show("Bạn có phải là chủ phòng không ? - Hãy cẩn thận công việc của bạn !", "Xác nhận", MessageBoxButtons.YesNo);
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -95,5 +101,7 @@ namespace DXApplication1
                 }               
             }
         }
+
+        
     }
 }

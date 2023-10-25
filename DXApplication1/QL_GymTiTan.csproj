@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForm\Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForm\Pay.Designer.cs">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForm\StaffUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChildForm\Pay.resx">
+      <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChildForm\StaffUpdate.resx">
       <DependentUpon>StaffUpdate.cs</DependentUpon>
     </EmbeddedResource>

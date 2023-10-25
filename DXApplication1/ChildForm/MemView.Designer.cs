@@ -154,7 +154,7 @@
             this.dgvUpdate.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUpdate.EnableHeadersVisualStyles = false;
             this.dgvUpdate.GridColor = System.Drawing.Color.DeepSkyBlue;
-            this.dgvUpdate.Location = new System.Drawing.Point(44, 150);
+            this.dgvUpdate.Location = new System.Drawing.Point(50, 148);
             this.dgvUpdate.Name = "dgvUpdate";
             this.dgvUpdate.RowHeadersVisible = false;
             this.dgvUpdate.RowHeadersWidth = 51;
@@ -184,6 +184,7 @@
             this.dgvUpdate.ThemeStyle.RowsStyle.Height = 24;
             this.dgvUpdate.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.dgvUpdate.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUpdate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUpdate_CellContentClick);
             // 
             // btnClose
             // 
