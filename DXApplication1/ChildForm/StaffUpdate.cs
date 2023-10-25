@@ -64,6 +64,14 @@ namespace DXApplication1.ChildForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string soLuong = txtSDTNhanVien.Text;
+            string chucVu = cmbChucVu.Text;
+            string ngayThamGia = dateThamGia.Text;
+            if (string.IsNullOrEmpty(soLuong) || string.IsNullOrEmpty(chucVu) || string.IsNullOrEmpty(ngayThamGia))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -77,6 +85,12 @@ namespace DXApplication1.ChildForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            string maNhanVien = txtMaNhanVien.Text;
+            if (string.IsNullOrEmpty(maNhanVien))
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên để xoá!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thông Tin Nhân Viên ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -90,6 +104,15 @@ namespace DXApplication1.ChildForm
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string maNhanVien = txtMaNhanVien.Text;
+            string soLuong = txtSDTNhanVien.Text;
+            string chucVu = cmbChucVu.Text;
+            string ngayThamGia = dateThamGia.Text;
+            if (string.IsNullOrEmpty(maNhanVien))
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên để sửa!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Nhân Viên ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {

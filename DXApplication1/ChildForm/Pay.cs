@@ -102,13 +102,19 @@ namespace DXApplication1.ChildForm
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            DateTime startDate = dateBatDau.DateTime;
-            DateTime endDate = dateHetHan.DateTime;
-            DateTime currentDate = DateTime.Now;
-
-            if (currentDate >= startDate && currentDate <= endDate)
+            string ngayBatDau = dateBatDau.Text;
+            string maThanhVien = txtMaThanhVien.Text;
+            if (string.IsNullOrEmpty(maThanhVien) || string.IsNullOrEmpty(ngayBatDau))
             {
-                MessageBox.Show("Đã thanh toán tháng này !");
+                MessageBox.Show("Vui lòng chọn và nhập thông tin đầy đủ trước khi thanh toán!");
+                return;
+            }
+            DateTime currentDate = DateTime.Now;
+            DataRow[] paymentRows = dtPay.Select("MaThanhVien = '" + maThanhVien + "' AND NgayBatDau <= '" + currentDate + "' AND NgayHetHan >= '" + currentDate + "'");
+            if (paymentRows.Length > 0)
+            {
+                MessageBox.Show("Thành viên đã thanh toán cho tháng này!");
+                return;
             }
             else
             {
@@ -126,6 +132,12 @@ namespace DXApplication1.ChildForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            string maThanhVien = txtMaThanhVien.Text;
+            if (string.IsNullOrEmpty(maThanhVien))
+            {
+                MessageBox.Show("Vui lòng chọn thành viên để xoá!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thông Tin Thanh Toán ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -144,11 +156,17 @@ namespace DXApplication1.ChildForm
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Thanh Toán ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
+            string maThanhVien = txtMaThanhVien.Text;
+            if (string.IsNullOrEmpty(maThanhVien))
+            {
+                MessageBox.Show("Vui lòng chọn thành viên để sửa!");
+                return;
+            }
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Thanh Toán ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 command = connection.CreateCommand();
-                command.CommandText = " Update ThanhToan set TinhTrang = NgayBatDauGoi = '" + dateBatDau.Text + "' , NgayHetHan = '" + dateHetHan.Text + "' where MaThanhVien ='" + txtMaThanhVien.Text + "'";
+                command.CommandText = " Update ThanhToan set NgayBatDau = '" + dateBatDau.DateTime + "' , NgayHetHan = '" + dateHetHan.DateTime + "' where MaThanhVien ='" + txtMaThanhVien.Text + "'";
                 command.ExecuteNonQuery();
                 DataLoad2();
                 System.Windows.Forms.MessageBox.Show("Đã Sửa Thông Tin Thanh Toán Thành Công!", "Thông báo", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
