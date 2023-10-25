@@ -64,6 +64,15 @@ namespace DXApplication1.ChildForm
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string soLuong = txtSoLuong.Text;
+            string tenThietBi = txtTenThietBi.Text;
+            string ngayBaoTri = dateBaoTri.Text;
+            string tinhTrang = cmbTinhTrang.Text;
+            if (string.IsNullOrEmpty(soLuong) || string.IsNullOrEmpty(tenThietBi) || string.IsNullOrEmpty(ngayBaoTri) || string.IsNullOrEmpty(tinhTrang))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin Thiết Bị ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -77,6 +86,12 @@ namespace DXApplication1.ChildForm
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            string maThietBi = txtMaThietBi.Text;
+            if (string.IsNullOrEmpty(maThietBi))
+            {
+                MessageBox.Show("Vui lòng chọn thiết bị để xoá!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thông Tin Thiết Bị ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {

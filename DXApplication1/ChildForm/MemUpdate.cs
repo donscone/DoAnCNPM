@@ -68,6 +68,17 @@ namespace DXApplication1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string tenThanhVien = txtTenThanhVien.Text;
+            string soDT = txtSDTThanhVien.Text;
+            string gioiTinh = cmbGioiTinh.Text;
+            string ngaySinh = dateSinh.Text;
+            string ngayThamGia = dateThamGia.Text;
+            string goiTap = cmbGoiTap.Text;
+            if (string.IsNullOrEmpty(tenThanhVien) || string.IsNullOrEmpty(soDT) || string.IsNullOrEmpty(gioiTinh) || string.IsNullOrEmpty(goiTap) || string.IsNullOrEmpty(ngaySinh) || string.IsNullOrEmpty(ngayThamGia))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -81,6 +92,12 @@ namespace DXApplication1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            string maThanhVien = txtMaThanhVien.Text;
+            if (string.IsNullOrEmpty(maThanhVien))
+            {
+                MessageBox.Show("Vui lòng chọn thành viên để xoá!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Xoá Thành Viên ? ", "Xác nhận xoá", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -94,6 +111,12 @@ namespace DXApplication1
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string maThanhVien = txtMaThanhVien.Text;
+            if (string.IsNullOrEmpty(maThanhVien))
+            {
+                MessageBox.Show("Vui lòng chọn thành viên để sửa!");
+                return;
+            }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Thành Viên ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
