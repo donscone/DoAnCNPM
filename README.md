@@ -1,4 +1,3 @@
-# DoAnCNPM
 Đồ Án Môn Công Nghệ Phần Mềm - New
 ---------------------------------
 |            NHÓM ABC           |
