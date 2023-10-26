@@ -1,5 +1,6 @@
 ﻿using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DXApplication1.ChildForm;
 using System;
 using System.Collections.Generic;
 using System.Linq;

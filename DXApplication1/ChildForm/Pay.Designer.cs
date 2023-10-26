@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pay));
             this.txtMaThanhVien = new System.Windows.Forms.TextBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtGiaTien = new System.Windows.Forms.TextBox();
             this.dateHetHan = new DevExpress.XtraEditors.DateEdit();
             this.dateBatDau = new DevExpress.XtraEditors.DateEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +59,10 @@
             this.dgvPay = new Guna.UI.WinForms.GunaDataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtGiaTien = new System.Windows.Forms.TextBox();
+            this.btnPrint = new Guna.UI.WinForms.GunaButton();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnPreview = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateHetHan.Properties)).BeginInit();
@@ -93,11 +97,19 @@
             this.groupControl1.Controls.Add(this.label5);
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Location = new System.Drawing.Point(234, 55);
+            this.groupControl1.Location = new System.Drawing.Point(206, 53);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(697, 162);
             this.groupControl1.TabIndex = 23;
             this.groupControl1.Text = "Thông Tin Thanh Toán";
+            // 
+            // txtGiaTien
+            // 
+            this.txtGiaTien.Location = new System.Drawing.Point(499, 42);
+            this.txtGiaTien.Name = "txtGiaTien";
+            this.txtGiaTien.ReadOnly = true;
+            this.txtGiaTien.Size = new System.Drawing.Size(167, 23);
+            this.txtGiaTien.TabIndex = 14;
             // 
             // dateHetHan
             // 
@@ -221,7 +233,7 @@
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Image = null;
             this.btnReset.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnReset.Location = new System.Drawing.Point(324, 235);
+            this.btnReset.Location = new System.Drawing.Point(470, 238);
             this.btnReset.Name = "btnReset";
             this.btnReset.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
             this.btnReset.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -246,7 +258,7 @@
             this.btnPay.ForeColor = System.Drawing.Color.White;
             this.btnPay.Image = null;
             this.btnPay.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnPay.Location = new System.Drawing.Point(468, 235);
+            this.btnPay.Location = new System.Drawing.Point(600, 238);
             this.btnPay.Name = "btnPay";
             this.btnPay.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
             this.btnPay.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -271,7 +283,7 @@
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = null;
             this.btnUpdate.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnUpdate.Location = new System.Drawing.Point(709, 235);
+            this.btnUpdate.Location = new System.Drawing.Point(817, 238);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
             this.btnUpdate.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -296,7 +308,7 @@
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = null;
             this.btnClose.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnClose.Location = new System.Drawing.Point(813, 235);
+            this.btnClose.Location = new System.Drawing.Point(910, 238);
             this.btnClose.Name = "btnClose";
             this.btnClose.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
             this.btnClose.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -340,7 +352,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = null;
             this.btnDelete.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnDelete.Location = new System.Drawing.Point(603, 235);
+            this.btnDelete.Location = new System.Drawing.Point(724, 238);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
             this.btnDelete.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -355,29 +367,29 @@
             // 
             // dgvUpdate
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.dgvUpdate.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.dgvUpdate.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvUpdate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUpdate.BackgroundColor = System.Drawing.Color.White;
             this.dgvUpdate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUpdate.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUpdate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUpdate.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvUpdate.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUpdate.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUpdate.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvUpdate.EnableHeadersVisualStyles = false;
             this.dgvUpdate.GridColor = System.Drawing.Color.DeepSkyBlue;
             this.dgvUpdate.Location = new System.Drawing.Point(14, 23);
@@ -414,29 +426,29 @@
             // 
             // dgvPay
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.dgvPay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.dgvPay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvPay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPay.BackgroundColor = System.Drawing.Color.White;
             this.dgvPay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvPay.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPay.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPay.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvPay.EnableHeadersVisualStyles = false;
             this.dgvPay.GridColor = System.Drawing.Color.DeepSkyBlue;
             this.dgvPay.Location = new System.Drawing.Point(16, 22);
@@ -491,19 +503,77 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông Tin Thanh Toán";
             // 
-            // txtGiaTien
+            // btnPrint
             // 
-            this.txtGiaTien.Location = new System.Drawing.Point(499, 42);
-            this.txtGiaTien.Name = "txtGiaTien";
-            this.txtGiaTien.ReadOnly = true;
-            this.txtGiaTien.Size = new System.Drawing.Size(167, 23);
-            this.txtGiaTien.TabIndex = 14;
+            this.btnPrint.AnimationHoverSpeed = 0.07F;
+            this.btnPrint.AnimationSpeed = 0.03F;
+            this.btnPrint.BaseColor = System.Drawing.Color.DimGray;
+            this.btnPrint.BorderColor = System.Drawing.Color.Black;
+            this.btnPrint.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnPrint.FocusedColor = System.Drawing.Color.Empty;
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = null;
+            this.btnPrint.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnPrint.Location = new System.Drawing.Point(286, 238);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPrint.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnPrint.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnPrint.OnHoverImage = null;
+            this.btnPrint.OnPressedColor = System.Drawing.Color.Black;
+            this.btnPrint.Size = new System.Drawing.Size(124, 36);
+            this.btnPrint.TabIndex = 36;
+            this.btnPrint.Text = "In Thẻ";
+            this.btnPrint.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.AnimationHoverSpeed = 0.07F;
+            this.btnPreview.AnimationSpeed = 0.03F;
+            this.btnPreview.BaseColor = System.Drawing.Color.DimGray;
+            this.btnPreview.BorderColor = System.Drawing.Color.Black;
+            this.btnPreview.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnPreview.FocusedColor = System.Drawing.Color.Empty;
+            this.btnPreview.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.ForeColor = System.Drawing.Color.White;
+            this.btnPreview.Image = null;
+            this.btnPreview.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnPreview.Location = new System.Drawing.Point(128, 238);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.OnHoverBaseColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPreview.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnPreview.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnPreview.OnHoverImage = null;
+            this.btnPreview.OnPressedColor = System.Drawing.Color.Black;
+            this.btnPreview.Size = new System.Drawing.Size(152, 36);
+            this.btnPreview.TabIndex = 37;
+            this.btnPreview.Text = "Xem Trước Thẻ";
+            this.btnPreview.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // Pay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 670);
+            this.Controls.Add(this.btnPreview);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnReset);
@@ -561,5 +631,9 @@
         private DevExpress.XtraEditors.DateEdit dateHetHan;
         private DevExpress.XtraEditors.DateEdit dateBatDau;
         private System.Windows.Forms.TextBox txtGiaTien;
+        private Guna.UI.WinForms.GunaButton btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private Guna.UI.WinForms.GunaButton btnPreview;
     }
 }

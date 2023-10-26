@@ -16,6 +16,8 @@ namespace DXApplication1.ChildForm
 {
     public partial class Pay : DevExpress.XtraEditors.XtraForm
     {
+        bool isPrinted = false;
+        PrintPreviewDialog printPreviewDialog;
         SqlConnection connection;
         SqlCommand command;
         string str = @"Data Source=DEEPMOON-DESKTO\DUYCONGLAP;Initial Catalog=GymTitanDb;Integrated Security=True";
@@ -57,6 +59,7 @@ namespace DXApplication1.ChildForm
             DataLoad2();
             dateHetHan.ReadOnly = true;
             cmbGoiTap.Enabled = false;
+            printPreviewDialog = new PrintPreviewDialog();
         }
 
         private void Pay_FormClosing(object sender, FormClosingEventArgs e)
@@ -173,11 +176,6 @@ namespace DXApplication1.ChildForm
             }
         }
 
-        private void cmbTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmbGoiTap_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedValue = cmbGoiTap.SelectedItem.ToString().Trim(); 
@@ -256,5 +254,80 @@ namespace DXApplication1.ChildForm
                 dateHetHan.DateTime = endDate;
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaThanhVien.Text) || string.IsNullOrEmpty(dateBatDau.Text))
+            {
+                MessageBox.Show("Vui lòng chọn thông tin thành viên!");
+                return;
+            }
+            /*if (isPrinted)
+            {
+                // Đã in trước đây, xác nhận in lại
+                if (DialogResult.Yes != MessageBox.Show("Đã in trước đây, in lại ?", "Xác nhận", MessageBoxButtons.YesNo))
+                    return;
+            }*/
+            printDocument1.Print();
+           // isPrinted = true;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            DataTable thanhToanDataTable = GetThanhToanData();
+            int startX = 10;
+            int startY = 10;
+            int lineHeight = 20;
+            e.Graphics.DrawString("\tTHẺ THÀNH VIÊN", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, startX, startY);
+            e.Graphics.DrawString("\n--------------------------------------------", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, startX, startY);
+            startY += lineHeight * 2;
+
+            // Vẽ thông tin thành viên
+            foreach (DataRow row in thanhToanDataTable.Rows)
+            {
+                if (row["MaThanhVien"].ToString() != txtMaThanhVien.Text)
+                    continue;
+                string MaThanhVien = row["MaThanhVien"].ToString();
+                string TenThanhVien = row["TenThanhVien"].ToString();
+                string GoiTap = row["GoiTap"].ToString();
+                string NgayBatDau = row["NgayBatDau"].ToString();
+                string NgayHetHan = row["NgayHetHan"].ToString();
+
+                e.Graphics.DrawString($"\n\tMã thành viên : {MaThanhVien}", new Font("Arial", 12), Brushes.Black, startX, startY);
+                startY += lineHeight;
+                e.Graphics.DrawString($"\n\tTên thành viên: {TenThanhVien}", new Font("Arial", 12), Brushes.Black, startX, startY);
+                startY += lineHeight;
+                e.Graphics.DrawString($"\n\tGói dịch vụ     : {GoiTap}", new Font("Arial", 12), Brushes.Black, startX, startY);
+                startY += lineHeight;
+                e.Graphics.DrawString($"\n\tNgày bắt đầu  : {NgayBatDau}", new Font("Arial", 12), Brushes.Black, startX, startY);
+                startY += lineHeight;
+                e.Graphics.DrawString($"\n\tNgày kết thúc : {NgayHetHan}", new Font("Arial", 12), Brushes.Black, startX, startY);
+                startY += lineHeight;
+                e.Graphics.DrawString("\n--------------------------------------------", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, startX, startY);
+            }
+        }
+
+        private DataTable GetThanhToanData()
+        {
+            command = connection.CreateCommand();
+            command.CommandText = "Select * From ThanhToan";
+            adapter.SelectCommand = command;
+            dtPay.Clear();
+            adapter.Fill(dtPay);
+            return dtPay;
+        }
+
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaThanhVien.Text) || string.IsNullOrEmpty(dateBatDau.Text))
+            {
+                MessageBox.Show("Vui lòng chọn thông tin thành viên!");
+                return;
+            }
+            printPreviewDialog.Document = printDocument1;
+            printPreviewDialog.ShowDialog();
+        }
+
+    
     }
 }
