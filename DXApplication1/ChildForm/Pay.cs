@@ -103,7 +103,7 @@ namespace DXApplication1.ChildForm
             dateHetHan.Text = "";
         }
 
-        private void btnPay_Click(object sender, EventArgs e)
+        private void btnPay_Click(object sender, EventArgs e) //Thanh toán 
         {
             string ngayBatDau = dateBatDau.Text;
             string maThanhVien = txtMaThanhVien.Text;
@@ -121,7 +121,7 @@ namespace DXApplication1.ChildForm
             }
             else
             {
-                System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Thanh Toán ? ", "Xác nhận thanh toán", System.Windows.Forms.MessageBoxButtons.YesNo);
+            System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Thanh Toán ? ", "Xác nhận thanh toán", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 command = connection.CreateCommand();
@@ -133,7 +133,7 @@ namespace DXApplication1.ChildForm
         }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e) //Xoá thông tin thanh toán
         {
             string maThanhVien = txtMaThanhVien.Text;
             if (string.IsNullOrEmpty(maThanhVien))
@@ -157,7 +157,7 @@ namespace DXApplication1.ChildForm
             Close();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e) //Sửa thông tin thanh toán
         {
             string maThanhVien = txtMaThanhVien.Text;
             if (string.IsNullOrEmpty(maThanhVien))
@@ -176,7 +176,7 @@ namespace DXApplication1.ChildForm
             }
         }
 
-        private void cmbGoiTap_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbGoiTap_SelectedIndexChanged(object sender, EventArgs e) //Gán giá tiền cho từng gói tập - Hiển thị giá trên hộp thông tin
         {
             string selectedValue = cmbGoiTap.SelectedItem.ToString().Trim(); 
             if (selectedValue == "1 Tháng")
@@ -209,7 +209,7 @@ namespace DXApplication1.ChildForm
             }
         }
 
-        private void dateBatDau_EditValueChanged(object sender, EventArgs e)
+        private void dateBatDau_EditValueChanged(object sender, EventArgs e) //Tự động cộng thêm thời gian cho gói dựa theo ngày bắt đầu
         {
             if (cmbGoiTap.Text == "1 Tháng")
             {
@@ -255,24 +255,24 @@ namespace DXApplication1.ChildForm
             }
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e) //In thẻ thành viên
         {
             if (string.IsNullOrEmpty(txtMaThanhVien.Text) || string.IsNullOrEmpty(dateBatDau.Text))
             {
                 MessageBox.Show("Vui lòng chọn thông tin thành viên!");
                 return;
             }
-            /*if (isPrinted)
+            if (isPrinted)
             {
                 // Đã in trước đây, xác nhận in lại
                 if (DialogResult.Yes != MessageBox.Show("Đã in trước đây, in lại ?", "Xác nhận", MessageBoxButtons.YesNo))
                     return;
-            }*/
+            }
             printDocument1.Print();
-           // isPrinted = true;
+            isPrinted = true;
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) //Tạo thẻ thành viên
         {
             DataTable thanhToanDataTable = GetThanhToanData();
             int startX = 10;
@@ -281,18 +281,17 @@ namespace DXApplication1.ChildForm
             e.Graphics.DrawString("\tTHẺ THÀNH VIÊN", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, startX, startY);
             e.Graphics.DrawString("\n--------------------------------------------", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, startX, startY);
             startY += lineHeight * 2;
-
             // Vẽ thông tin thành viên
             foreach (DataRow row in thanhToanDataTable.Rows)
             {
                 if (row["MaThanhVien"].ToString() != txtMaThanhVien.Text)
-                    continue;
+                continue;
+                //Gán thông tin của bảng ThanhToan từ Database
                 string MaThanhVien = row["MaThanhVien"].ToString();
                 string TenThanhVien = row["TenThanhVien"].ToString();
                 string GoiTap = row["GoiTap"].ToString();
                 string NgayBatDau = row["NgayBatDau"].ToString();
                 string NgayHetHan = row["NgayHetHan"].ToString();
-
                 e.Graphics.DrawString($"\n\tMã thành viên : {MaThanhVien}", new Font("Arial", 12), Brushes.Black, startX, startY);
                 startY += lineHeight;
                 e.Graphics.DrawString($"\n\tTên thành viên: {TenThanhVien}", new Font("Arial", 12), Brushes.Black, startX, startY);
@@ -307,7 +306,7 @@ namespace DXApplication1.ChildForm
             }
         }
 
-        private DataTable GetThanhToanData()
+        private DataTable GetThanhToanData() //Lấy thông tin của bảng ThanhToan từ Database
         {
             command = connection.CreateCommand();
             command.CommandText = "Select * From ThanhToan";
@@ -317,7 +316,7 @@ namespace DXApplication1.ChildForm
             return dtPay;
         }
 
-        private void btnPreview_Click(object sender, EventArgs e)
+        private void btnPreview_Click(object sender, EventArgs e) //Xem trước thẻ thành viên
         {
             if (string.IsNullOrEmpty(txtMaThanhVien.Text) || string.IsNullOrEmpty(dateBatDau.Text))
             {

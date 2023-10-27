@@ -15,11 +15,13 @@ namespace DXApplication1
 {
     public partial class HomeAdmin : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        string correctPass = "admin";
+        int clickCount = 0;
         public HomeAdmin()
         {
             InitializeComponent();
             this.MaximizeBox = false; //Tắt chức năng phóng to form
-            
+            //Khoá chức năng quản lý nhân viên
             accordionControlElement9.Visible = false;
             accordionControlElement10.Visible = false;
             accordionControlElement7.Visible = false;
@@ -84,8 +86,6 @@ namespace DXApplication1
             StaffView.ShowDialog();        
         }
 
-
-        int clickCount = 0;
         private void labAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             clickCount++;
@@ -95,18 +95,31 @@ namespace DXApplication1
             }
             else if (clickCount == 3)
             {
-                System.Windows.Forms.DialogResult result = MessageBox.Show("Hãy dừng lại, bạn đang cố gắng can thiệp vào hệ thống !", "Xác nhận", MessageBoxButtons.YesNo);
-            }
-            else if (clickCount == 7)
-            {
-                System.Windows.Forms.DialogResult result = MessageBox.Show("Bạn có phải là chủ phòng không? Hãy cẩn thận công việc của bạn!", "Xác nhận", MessageBoxButtons.YesNo);
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                string passInput = InputBox("Nhập mật khẩu");
+                if (passInput == correctPass)
                 {
-                    accordionControlElement9.Visible = true;
-                    accordionControlElement10.Visible = true;
-                    accordionControlElement7.Visible = true;
+                    OpenStaffMan();
+                }
+                else
+                {
+                    MessageBox.Show("Mật khẩu không đúng!");
                 }
             }
         }
+        public static string InputBox(string text)
+        {
+            string password;
+            password = Microsoft.VisualBasic.Interaction.InputBox(text, "Nhập Mật Khẩu", "");
+            return password;
+        }
+
+        private void OpenStaffMan()
+        {
+            accordionControlElement9.Visible = true;
+            accordionControlElement10.Visible = true;
+            accordionControlElement7.Visible = true;
+            MessageBox.Show("Đã mở khoá quản lý Nhân viên !");
+        }
+
     }
 }
