@@ -21,7 +21,8 @@ namespace DXApplication1
 
         private void Unlock_Load(object sender, EventArgs e)
         {
-           
+            DateTime currentTime = DateTime.Now; //Lấy thông tin thời gian hiện tại
+            txtCurrentTime.Text = currentTime.ToString("dd/MM/yyyy"); //Gán thông tin thời gian hiện tại vào TextBox
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -53,6 +54,6 @@ namespace DXApplication1
                 MessageBox.Show("Mật khẩu sai");
                 return;
             }
-        }       
+        }
     }
 }

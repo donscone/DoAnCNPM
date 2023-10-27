@@ -120,6 +120,5 @@ namespace DXApplication1
             accordionControlElement7.Visible = true;
             MessageBox.Show("Đã mở khoá quản lý Nhân viên !");
         }
-
     }
 }
