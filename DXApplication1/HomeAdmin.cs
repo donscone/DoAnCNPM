@@ -27,14 +27,17 @@ namespace DXApplication1
             accordionControlElement7.Visible = false;
         }
 
-
-
         private void HomeAdmin_FormClosing(object sender, FormClosingEventArgs e) //Luôn hiển thị hộp thoại xác nhận khi đóng form
         {
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận thoát", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.No)
             {
                 e.Cancel = true;
+            }
+            Unlock formUnlock = Application.OpenForms.OfType<Unlock>().FirstOrDefault();
+            if (formUnlock != null)
+            {
+                formUnlock.Close(); // Đóng form "Unlock"
             }
         }
 

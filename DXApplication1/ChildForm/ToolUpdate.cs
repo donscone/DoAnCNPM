@@ -62,15 +62,29 @@ namespace DXApplication1.ChildForm
             dateBaoTri.Text = dgvUpdate.SelectedRows[0].Cells[4].Value.ToString();
         }
 
+        private bool CheckMemberExists(string maThanhVien)
+        {
+            command = connection.CreateCommand();
+            command.CommandText = "SELECT COUNT(*) FROM ThietBi WHERE MaThietBi = '" + txtMaThietBi.Text + "'";
+            int count = Convert.ToInt32(command.ExecuteScalar());
+            return count > 0;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string soLuong = txtSoLuong.Text;
             string tenThietBi = txtTenThietBi.Text;
             string ngayBaoTri = dateBaoTri.Text;
             string tinhTrang = cmbTinhTrang.Text;
+            bool memberExists = CheckMemberExists(txtMaThietBi.Text);
             if (string.IsNullOrEmpty(soLuong) || string.IsNullOrEmpty(tenThietBi) || string.IsNullOrEmpty(ngayBaoTri) || string.IsNullOrEmpty(tinhTrang))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            if (memberExists)
+            {
+                MessageBox.Show("Dụng cụ đã tồn tại!");
                 return;
             }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin Thiết Bị ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);

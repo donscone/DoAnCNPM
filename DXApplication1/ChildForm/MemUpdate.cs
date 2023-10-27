@@ -66,6 +66,14 @@ namespace DXApplication1
             cmbGoiTap.Text = dgvUpdate.SelectedRows[0].Cells[6].Value.ToString();
         }
 
+        private bool CheckMemberExists(string maThanhVien)
+        {
+            command = connection.CreateCommand();
+            command.CommandText = "SELECT COUNT(*) FROM ThanhVien WHERE MaThanhVien = '" + txtMaThanhVien.Text + "'";
+            int count = Convert.ToInt32(command.ExecuteScalar());
+            return count > 0;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string tenThanhVien = txtTenThanhVien.Text;
@@ -74,11 +82,23 @@ namespace DXApplication1
             string ngaySinh = dateSinh.Text;
             string ngayThamGia = dateThamGia.Text;
             string goiTap = cmbGoiTap.Text;
+            bool memberExists = CheckMemberExists(txtMaThanhVien.Text);
             if (string.IsNullOrEmpty(tenThanhVien) || string.IsNullOrEmpty(soDT) || string.IsNullOrEmpty(gioiTinh) || string.IsNullOrEmpty(goiTap) || string.IsNullOrEmpty(ngaySinh) || string.IsNullOrEmpty(ngayThamGia))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
                 return;
             }
+            if (!int.TryParse(soDT, out _))
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào Số điện thoại!");
+                return;
+            }
+            if (memberExists)
+            {
+                MessageBox.Show("Thành viên đã tồn tại!");
+                return;
+            }
+
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -111,10 +131,16 @@ namespace DXApplication1
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string soDT = txtSDTThanhVien.Text;
             string maThanhVien = txtMaThanhVien.Text;
             if (string.IsNullOrEmpty(maThanhVien))
             {
                 MessageBox.Show("Vui lòng chọn thành viên để sửa!");
+                return;
+            }
+            if (!int.TryParse(soDT, out _))
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào Số điện thoại!");
                 return;
             }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Thành Viên ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
@@ -142,6 +168,11 @@ namespace DXApplication1
             cmbGoiTap.Text = "";
             dateSinh.Text = "";
             dateThamGia.Text = "";
+        }
+
+        private void txtSDTThanhVien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

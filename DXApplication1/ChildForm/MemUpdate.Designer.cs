@@ -162,6 +162,7 @@
             this.txtSDTThanhVien.Name = "txtSDTThanhVien";
             this.txtSDTThanhVien.Size = new System.Drawing.Size(215, 23);
             this.txtSDTThanhVien.TabIndex = 1;
+            this.txtSDTThanhVien.TextChanged += new System.EventHandler(this.txtSDTThanhVien_TextChanged);
             // 
             // txtTenThanhVien
             // 

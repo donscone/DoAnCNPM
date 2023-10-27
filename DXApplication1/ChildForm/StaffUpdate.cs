@@ -62,14 +62,33 @@ namespace DXApplication1.ChildForm
             dateThamGia.Text = dgvUpdate.SelectedRows[0].Cells[4].Value.ToString();
         }
 
+        private bool CheckMemberExists(string maThanhVien)
+        {
+            command = connection.CreateCommand();
+            command.CommandText = "SELECT COUNT(*) FROM NhanVien WHERE MaNhanVien = '" + txtMaNhanVien.Text + "'";
+            int count = Convert.ToInt32(command.ExecuteScalar());
+            return count > 0;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string soLuong = txtSDTNhanVien.Text;
+            string soDT = txtSDTNhanVien.Text;
             string chucVu = cmbChucVu.Text;
             string ngayThamGia = dateThamGia.Text;
-            if (string.IsNullOrEmpty(soLuong) || string.IsNullOrEmpty(chucVu) || string.IsNullOrEmpty(ngayThamGia))
+            bool memberExists = CheckMemberExists(txtMaNhanVien.Text);
+            if (string.IsNullOrEmpty(soDT) || string.IsNullOrEmpty(chucVu) || string.IsNullOrEmpty(ngayThamGia))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            if (!int.TryParse(soDT, out _))
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào Số điện thoại!");
+                return;
+            }
+            if (memberExists)
+            {
+                MessageBox.Show("Nhân viên đã tồn tại!");
                 return;
             }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Lưu Thông Tin ? ", "Xác nhận lưu", System.Windows.Forms.MessageBoxButtons.YesNo);
@@ -105,12 +124,15 @@ namespace DXApplication1.ChildForm
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string maNhanVien = txtMaNhanVien.Text;
-            string soLuong = txtSDTNhanVien.Text;
-            string chucVu = cmbChucVu.Text;
-            string ngayThamGia = dateThamGia.Text;
+            string soDT = txtSDTNhanVien.Text;         
             if (string.IsNullOrEmpty(maNhanVien))
             {
                 MessageBox.Show("Vui lòng chọn nhân viên để sửa!");
+                return;
+            }
+            if (!int.TryParse(soDT, out _))
+            {
+                MessageBox.Show("Vui lòng chỉ nhập số vào Số điện thoại!");
                 return;
             }
             System.Windows.Forms.DialogResult result = System.Windows.Forms.MessageBox.Show("Sửa Thông Tin Nhân Viên ? ", "Xác nhận sửa", System.Windows.Forms.MessageBoxButtons.YesNo);
@@ -127,6 +149,7 @@ namespace DXApplication1.ChildForm
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+            
         }
 
         private void btnReset_Click(object sender, EventArgs e)
